@@ -1,0 +1,32 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="p-4 border rounded shadow-sm bg-light">
+  <div class="mb-3">
+    <label for="firstName" class="form-label">Student First Name</label>
+    <input type="text" id="firstName" class="form-control" formControlName="FirstName">
+  </div>
+
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Student Last Name</label>
+    <input type="text" id="lastName" class="form-control" formControlName="LastName">
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Student Email Address</label>
+    <input type="email" id="email" class="form-control" formControlName="Email">
+  </div>
+
+  <div class="mb-3">
+    <label for="phone" class="form-label">Student Phone Number</label>
+    <input type="text" id="phone" class="form-control" formControlName="Phone">
+  </div>
+
+  <div class="mb-3">
+    <label for="course" class="form-label">Student Course</label>
+    <select id="course" class="form-select" formControlName="Course">
+      <option *ngFor="let course of courses" [value]="course.code">
+        {{ course.name }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100" [disabled]="!studentForm.valid">Update Student</button>
+</form>
