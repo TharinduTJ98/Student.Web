@@ -30,8 +30,8 @@ export class StudentEditComponent implements OnInit{
         StudentId:[''],
         FirstName:['', Validators.required],
         LastName:['', Validators.required],
-        Email:['', Validators.required],
-        Phone:['', Validators.required],
+        Email:['', [Validators.required, Validators.email]],
+        Phone:['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
         Course:['', Validators.required],
       });
     }

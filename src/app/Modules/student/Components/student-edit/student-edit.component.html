@@ -12,11 +12,19 @@
   <div class="mb-3">
     <label for="email" class="form-label">Student Email Address</label>
     <input type="email" id="email" class="form-control" formControlName="Email">
+    <div *ngIf="studentForm.controls['Email'].invalid && studentForm.controls['Email'].touched" class="text-danger">
+      <small *ngIf="studentForm.controls['Email'].errors?.['required']">Email is required.</small>
+      <small *ngIf="studentForm.controls['Email'].errors?.['email']">Enter a valid email address.</small>
+    </div>
   </div>
 
   <div class="mb-3">
     <label for="phone" class="form-label">Student Phone Number</label>
     <input type="text" id="phone" class="form-control" formControlName="Phone">
+    <div *ngIf="studentForm.controls['Phone'].invalid && studentForm.controls['Phone'].touched" class="text-danger">
+      <small *ngIf="studentForm.controls['Phone'].errors?.['required']">Phone number is required.</small>
+      <small *ngIf="studentForm.controls['Phone'].errors?.['pattern']">Enter a valid Phone number address.</small>
+    </div>
   </div>
 
   <div class="mb-3">
