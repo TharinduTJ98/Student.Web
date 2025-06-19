@@ -8,6 +8,7 @@ import { Student } from '../Model/Student';
 })
 export class StudentService {
   private studentToEdit!: Student ;
+  private baseUrl = '/api'
 
   constructor(private http: HttpClient) { }
 
@@ -20,14 +21,14 @@ export class StudentService {
   }
 
   getAllStudent(): Observable<any>{
-    return this.http.get('https://localhost:7088/api/Student');
+    return this.http.get(`${this.baseUrl}/Student`);
   }
 
   addStudent(data: Student): Observable<any>{
-    return this.http.post('https://localhost:7088/api/Student', data);
+    return this.http.post(`${this.baseUrl}/Student`, data);
   }
 
   updateStudent(data: Student): Observable<any>{
-    return this.http.put('https://localhost:7088/api/Student', data);
+    return this.http.put(`${this.baseUrl}/Student`, data);
   }
 }
