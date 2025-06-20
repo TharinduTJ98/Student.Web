@@ -26,8 +26,13 @@ export class StudentViewComponent implements OnInit{
     )
   }
 
+  addStudent(){
+    this.studentService.setIsEdit(false);
+    this.router.navigate(['/student-add']);
+  }
   editStudent(student: Student) {
+    this.studentService.setIsEdit(true);
     this.studentService.setStudent(student);
-    this.router.navigate(['/student-edit']);
+    this.router.navigate(['/student-add']);
   }
 }

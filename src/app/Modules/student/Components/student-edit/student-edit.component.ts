@@ -49,7 +49,6 @@ export class StudentEditComponent implements OnInit{
 
   onSubmit(): void{
     if(this.studentForm.valid){
-      console.log("asdsad", this.studentForm.value)
       this.studentService.updateStudent(this.studentForm.value).subscribe({
         next: (res: any) =>{
           alert("Student Update Successfully!");
